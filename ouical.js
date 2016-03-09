@@ -26,7 +26,7 @@
         '&location=' + (event.address || ''),
         '&sprop=&sprop=name:'
       ].join(''));
-      return '<a class="icon-google" target="_blank" href="' +
+      return '<a class="icon-google add-to-calendar__buttons__button" target="_blank" href="' +
         href + '">Google</a>';
     },
 
@@ -59,7 +59,7 @@
         '&in_loc=' + (event.address || '')
       ].join(''));
 
-      return '<a class="icon-yahoo" target="_blank" href="' +
+      return '<a class="icon-yahoo add-to-calendar__buttons__button" target="_blank" href="' +
         href + '">Yahoo!</a>';
     },
 
@@ -86,11 +86,11 @@
     },
 
     ical: function(event) {
-      return this.ics(event, 'icon-ical', 'iCal');
+      return this.ics(event, 'icon-ical add-to-calendar__buttons__button', 'iCal');
     },
 
     outlook: function(event) {
-      return this.ics(event, 'icon-outlook', 'Outlook');
+      return this.ics(event, 'icon-outlook add-to-calendar__buttons__button', 'Outlook');
     }
   };
 
@@ -111,14 +111,18 @@
 
   var generateMarkup = function(calendars, clazz, calendarId) {
     var result = document.createElement('div');
+    var calendarButtonsHtml = '';
 
     result.innerHTML = '<label for="checkbox-for-' +
       calendarId + '" class="add-to-calendar-label">Add to calendar</label>';
     result.innerHTML += '<input name="add-to-calendar-checkbox" class="add-to-calendar-checkbox" id="checkbox-for-' + calendarId + '" type="checkbox">';
 
     Object.keys(calendars).forEach(function(services) {
-      result.innerHTML += calendars[services];
+      calendarButtonsHtml += calendars[services];
     });
+
+    result.innerHTML += '<div class="add-to-calendar__buttons">' + calendarButtonsHtml + '</div>';
+
 
     result.className = 'add-to-calendar';
     if (clazz !== undefined) {
