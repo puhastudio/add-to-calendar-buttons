@@ -27,7 +27,7 @@
         '&sprop=&sprop=name:'
       ].join(''));
       return '<a class="icon-google" target="_blank" href="' +
-        href + '">Google Calendar</a>';
+        href + '">Google</a>';
     },
 
     yahoo: function(event) {
@@ -60,7 +60,7 @@
       ].join(''));
 
       return '<a class="icon-yahoo" target="_blank" href="' +
-        href + '">Yahoo! Calendar</a>';
+        href + '">Yahoo!</a>';
     },
 
     ics: function(event, eClass, calendarName) {
@@ -82,7 +82,7 @@
           'END:VCALENDAR'].join('\n'));
 
       return '<a class="' + eClass + '" target="_blank" href="' +
-        href + '">' + calendarName + ' Calendar</a>';
+        href + '">' + calendarName + '</a>';
     },
 
     ical: function(event) {
