@@ -113,7 +113,7 @@
     var result = document.createElement('div');
 
     result.innerHTML = '<label for="checkbox-for-' +
-      calendarId + '" class="add-to-calendar-label">+ Add to my Calendar</label>';
+      calendarId + '" class="add-to-calendar-label">Add to calendar</label>';
     result.innerHTML += '<input name="add-to-calendar-checkbox" class="add-to-calendar-checkbox" id="checkbox-for-' + calendarId + '" type="checkbox">';
 
     Object.keys(calendars).forEach(function(services) {
